@@ -1,21 +1,38 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import * as React from 'react';
+import { View, Text, SafeAreaView,StyleSheet,Button  } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
-export default function Authenticated() {
+const ProfileScreen = () => {
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1, padding: 16 }}>
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Text
+            style={{
+              fontSize: 25,
+              textAlign: 'center',
+              marginBottom: 16
+            }}>
+            You are on Profile Screen
+          </Text>
+        </View>
+        
+      </View>
+      <View style={styles.screen}>
       <Text style={styles.text}>You're Logged in</Text>
       <Text style={styles.phoneNumber}>{auth().currentUser.phoneNumber}</Text>
       <View style={{ marginTop: 30 }}>
         <Button title="Signout" onPress={() => auth().signOut()} />
       </View>
-
     </View>
-    
+    </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -56,3 +73,5 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
 });
+
+export default ProfileScreen;
