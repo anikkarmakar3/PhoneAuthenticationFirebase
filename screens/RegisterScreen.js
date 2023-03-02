@@ -15,7 +15,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import Loader from './scr/Loader';
+import Loader from './Loader';
 
 const RegisterScreen = (props) => {
   const [userName, setUserName] = useState('');
@@ -113,8 +113,7 @@ const RegisterScreen = (props) => {
               underlineColorAndroid="#f000"
               placeholder="Enter Email"
               placeholderTextColor="#8b9cb5"
-              keyboardType="email-address"
-              ref={emailInputRef}            
+              keyboardType="email-address"           
               blurOnSubmit={false}
             />
           </View>
@@ -127,13 +126,9 @@ const RegisterScreen = (props) => {
               underlineColorAndroid="#f000"
               placeholder="Enter Password"
               placeholderTextColor="#8b9cb5"
-              ref={passwordInputRef}
               returnKeyType="next"
               secureTextEntry={true}
-              onSubmitEditing={() =>
-                ageInputRef.current &&
-                ageInputRef.current.focus()
-              }
+
               blurOnSubmit={false}
             />
           </View>
@@ -145,12 +140,9 @@ const RegisterScreen = (props) => {
               placeholder="Enter Age"
               placeholderTextColor="#8b9cb5"
               keyboardType="numeric"
-              ref={ageInputRef}
+              
               returnKeyType="next"
-              onSubmitEditing={() =>
-                addressInputRef.current &&
-                addressInputRef.current.focus()
-              }
+              
               blurOnSubmit={false}
             />
           </View>
